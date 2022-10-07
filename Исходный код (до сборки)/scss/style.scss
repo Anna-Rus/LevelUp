@@ -1,0 +1,87 @@
+@use "sass:math";
+//<МИКСИНЫ>===============================================================================================
+@import "mixins";
+//</МИКСИНЫ>===============================================================================================
+
+@import "fonts";
+
+$fontFamily: "Gilroy";
+$fontSize: 16;
+$fontWeigth: 400;
+
+
+$minWidth: 320px;
+$maxWidth: 1230;
+$maxWidthContainer: 1230;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 769.98;
+$md4: 479.98;
+
+$mainColor: #121212;
+
+@import "null";
+body {
+	color: $mainColor;
+	font-size: $fontSize;
+	font-weight: $fontWeigth;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	@include flexbox();
+	flex-direction: column;
+}
+
+._container {
+	max-width: $maxWidthContainer + px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.page {
+
+}
+
+@import "header";
+@import "slider";
+@import "home";
+
+
+.title-block {
+	color: #d0a97e;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 75px;
+	display: inline-block;
+	margin: 0 0 70px 0;
+	@media(max-width: 600px) {
+		font-size: 48px;
+		margin: 0 0 40px 0;
+	}
+	&._black {
+		color: #121212;
+	}
+}
+
+._btn {
+	padding: 25px 75px;
+	background: linear-gradient(to bottom, #edb017, #f5d31b, #edb017) 0 bottom;
+	display: inline-block;
+	border-radius: 50px;
+	cursor: pointer;
+	span {
+		text-transform: uppercase;
+		font-size: 26px;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	&:hover {
+		@include anim(0.3s, 0s);
+		@include shadow(2px, 2px, 47px, 26px, rgba(237, 176, 23, 0.35));
+	}
+	@media(max-width: ($md4+px)) {
+		font-size: 22px;
+	}
+}
